@@ -12,9 +12,9 @@
     {{ 'application.css' | asset_url | stylesheet_tag }}
     {{ 'application.js' | asset_url | script_tag }}
   </head>
-  <body>
+  <body class="bg-slate-400">
+    {% section 'header' %}
     <main role="main">
-      Hello kd
       {{ content_for_layout }}
     </main>
   </body>

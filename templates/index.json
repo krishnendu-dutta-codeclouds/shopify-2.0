@@ -5,7 +5,13 @@
             "settings": {
                 "featured_collection": "all"
             }
+        },
+        "custom-blog": {
+            "type": "Custom-Banner",
+            "settings": {
+                "featured_collection": "all"
+            }
         }
     },
-    "order": ["featured-collection"]
+    "order": ["featured-collection","custom-blog"]
 }

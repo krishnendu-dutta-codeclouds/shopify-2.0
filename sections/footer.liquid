@@ -1,0 +1,67 @@
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Footer Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Select Menu"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Footer Text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "footer_text",
+          "label": "Custom Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": [
+        { "type": "menu" },
+        { "type": "text" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<footer class="big-footer">
+  <div class="footer-container">
+    <div class="footer-links">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'menu' %}
+            <div class="footer-column">
+              <h3>{{ linklists[block.settings.menu].title }}</h3>
+              <ul>
+                {% for link in linklists[block.settings.menu].links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'text' %}
+            <div class="text-center mt-3 text-neutral-400">
+                {{ block.settings.footer_text }}
+            </div>
+        {% endcase %}
+    {% endfor %}
+  </div>
+</footer>

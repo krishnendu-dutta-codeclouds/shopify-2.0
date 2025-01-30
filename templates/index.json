@@ -6,12 +6,9 @@
                 "featured_collection": "all"
             }
         },
-        "custom-blog": {
-            "type": "Custom-Banner",
-            "settings": {
-                "featured_collection": "all"
-            }
+        "banner": {
+            "type": "banner"
         }
     },
-    "order": ["featured-collection","custom-blog"]
+    "order": ["featured-collection","banner"]
 }

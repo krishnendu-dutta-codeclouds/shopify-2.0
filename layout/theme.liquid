@@ -1,38 +1,28 @@
 <!doctype html>
 <html>
-  <head>
-    <title>{{ page_title }}</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="{{ page_description | escape }}">
-    <link rel="canonical" href="{{ canonical_url }}">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    {{ content_for_header }}
-    <!-- Header hook for plugins -->
-    {{ 'application.css' | asset_url | stylesheet_tag }}
-    {{ 'application.js' | asset_url | script_tag }}
+<head>
+  <title>{{ page_title }}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  {{ content_for_header }} <!-- Header hook for plugins -->
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  
+  <script src="{{ 'application.js' | asset_url }}" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+  <style>
+    [x-cloak] { display: none !important; }
+  </style>
+</head>
+<body>
 
-  </head>
-  <body class="bg-gradient-to-tr from-blue-50 to-rose-50 bg-no-repeat overflow-y-auto min-h-screen w-full">
-    {% section 'header' %}
-    <main role="main">
-      {{ content_for_layout }}
-    </main>
+  {% section 'header' %}
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    gsap.from(".elm_header", {
-      opacity:0,
-      y: -20, // Move it up slightly
-      duration: 0.3,
-      delay:0.5,
-      stagger:0.3
-    });
-  </script>
-
-  </body>
+  <main role="main">
+    {{ content_for_layout }}
+  </main>
+</body>
 </html>

@@ -1,67 +1,126 @@
+<footer class="bg-gray-900 text-white py-10">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- Logo & Store Info -->
+      <div>
+        {% if section.settings.logo != blank %}
+          <a href="{{ shop.url }}">
+            <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}" class="h-12">
+          </a>
+        {% else %}
+          <h2 class="text-xl font-bold">{{ shop.name }}</h2>
+        {% endif %}
+        <p class="mt-3 text-gray-400">{{ section.settings.address }}</p>
+        <p class="text-gray-400">{{ section.settings.phone }}</p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">{{ section.settings.menu_title }}</h3>
+        <ul>
+          {% for link in section.settings.menu.links %}
+            <li class="mb-2">
+              <a href="{{ link.url }}" class="text-gray-400 hover:text-white">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+        <div class="flex space-x-4">
+          {% if section.settings.facebook_url != blank %}
+            <a href="{{ section.settings.facebook_url }}" class="text-gray-400 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          {% endif %}
+          {% if section.settings.twitter_url != blank %}
+            <a href="{{ section.settings.twitter_url }}" class="text-gray-400 hover:text-white">
+              <i class="fab fa-twitter"></i>
+            </a>
+          {% endif %}
+          {% if section.settings.instagram_url != blank %}
+            <a href="{{ section.settings.instagram_url }}" class="text-gray-400 hover:text-white">
+              <i class="fab fa-instagram"></i>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Subscribe</h3>
+        {% form 'customer' %}
+          <input type="email" name="contact[email]" placeholder="Enter your email" class="p-2 w-full bg-gray-800 text-white">
+          <button type="submit" class="mt-2 w-full bg-blue-500 text-white py-2">Subscribe</button>
+        {% endform %}
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="mt-10 border-t border-gray-700 pt-6 text-center text-gray-400">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
 {% schema %}
 {
   "name": "Footer",
-  "settings": [],
-  "blocks": [
+  "tag": "footer",
+  "settings": [
     {
-      "type": "menu",
-      "name": "Footer Menu",
-      "settings": [
-        {
-          "type": "link_list",
-          "id": "menu",
-          "label": "Select Menu"
-        }
-      ]
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
     },
     {
       "type": "text",
-      "name": "Footer Text",
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "footer_text",
-          "label": "Custom Text"
-        }
-      ]
+      "id": "address",
+      "label": "Store Address",
+      "default": "123 Street, City, Country"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "+1 234 567 890"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer Menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "menu_title",
+      "label": "Menu Title",
+      "default": "Quick Links"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
     }
   ],
   "presets": [
     {
-      "name": "Footer",
-      "blocks": [
-        { "type": "menu" },
-        { "type": "text" }
-      ]
+      "name": "Footer"
     }
   ]
 }
 {% endschema %}
-
-<footer class="big-footer">
-  <div class="footer-container">
-    <div class="footer-links">
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'menu' %}
-            <div class="footer-column">
-              <h3>{{ linklists[block.settings.menu].title }}</h3>
-              <ul>
-                {% for link in linklists[block.settings.menu].links %}
-                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-        {% endcase %}
-      {% endfor %}
-    </div>
-    {% for block in section.blocks %}
-        {% case block.type %}
-            {% when 'text' %}
-            <div class="text-center mt-3 text-neutral-400">
-                {{ block.settings.footer_text }}
-            </div>
-        {% endcase %}
-    {% endfor %}
-  </div>
-</footer>

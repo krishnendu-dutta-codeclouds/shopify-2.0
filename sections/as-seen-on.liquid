@@ -1,0 +1,68 @@
+<section class="as-seen-on py-10">
+    <div class="container mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center mb-6">As Seen On</h2>
+      <div class="swiper-container md:hidden">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide flex justify-center items-center">
+              <img src="{{ block.settings.logo | image_url }}" alt="{{ block.settings.alt_text }}" class="h-12">
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="hidden md:grid grid-cols-2 md:grid-cols-4 gap-8">
+        {% for block in section.blocks %}
+          <div class="flex justify-center items-center">
+            <img src="{{ block.settings.logo | image_url }}" alt="{{ block.settings.alt_text }}" class="h-12">
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  
+  {% schema %}
+  {
+    "name": "As Seen On",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo Image"
+          },
+          {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text",
+            "default": "Company Logo"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "As Seen On",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.innerWidth < 768) {
+        var swiper = new Swiper('.swiper-container', {
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+        });
+      }
+    });
+  </script>

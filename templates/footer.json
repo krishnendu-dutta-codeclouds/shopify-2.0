@@ -1,7 +1,8 @@
 {
     "sections": {
       "footer": {
-        "type": "footer"
+        "type": "footer",
+        "settings": {}
       }
     },
     "order": ["footer"]

@@ -14,9 +14,9 @@
 }
 
 .banner{
-  @apply w-full bg-cover bg-center flex items-center justify-center text-center text-[white];
+  @apply w-full bg-no-repeat bg-cover h-screen bg-center flex items-center justify-center text-center text-[white];
   .banner_body{
-    @apply py-10 w-full overflow-hidden;
+    @apply py-10  w-full overflow-hidden ;
   }
   .banner-heading {
     @apply text-[2.5rem] font-[bold];

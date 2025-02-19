@@ -4,8 +4,8 @@
   - Includes heading, subheading, and CTA button
 {% endcomment %}
 
-<section class="custom-banner" style="background-image: url('{{ section.settings.bg_image | image_url }}');">
-    <div class="container">
+<section class="banner">
+    <div class="banner_body" style="background-image: url('{{ section.settings.bg_image | image_url }}');">
         <h1 class="banner-heading">{{ section.settings.heading }}</h1>
         <p class="banner-subheading">{{ section.settings.subheading }}</p>
         {% if section.settings.button_label != '' %}

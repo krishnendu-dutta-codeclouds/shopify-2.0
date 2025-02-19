@@ -1,14 +1,14 @@
 {
     "sections": {
+        "banner": {
+            "type": "banner"
+        },
         "featured-collection": {
             "type": "featured-collection",
             "settings": {
                 "featured_collection": "all"
             }
-        },
-        "banner": {
-            "type": "banner"
         }
     },
-    "order": ["featured-collection","banner"]
+    "order": ["banner","featured-collection"]
 }

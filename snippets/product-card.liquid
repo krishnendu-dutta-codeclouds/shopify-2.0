@@ -1,8 +1,8 @@
 <div class="w-full py-6 px-3 flex flex-col justify-between">
-    <div class=" bg-white shadow-lg rounded-lg border-2 border-yellow-400 overflow-hidden h-full">
+    <div class=" bg-white  overflow-hidden h-full">
         <a href="{{ product_product.url }}">
             {% if product_product.featured_image %}
-                <div class="h-80 overflow-hidden">
+                <div class="h-80 overflow-hidden rounded-xl">
                     <img class="w-full h-full object-cover transition duration-1000 ease-in-out hover:scale-105 transform" src="{{ product_product.featured_image | img_url: 'medium' }}" alt="{{ product_product.featured_image.alt }}">
                 </div>
                 

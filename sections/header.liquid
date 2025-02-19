@@ -5,8 +5,8 @@
         assign main_menu_linklist = section.settings.menu.links
     endif
 %}
-<div class="text-center font-semibold py-1 text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Free shipping for all products</div>
-<div class="relative bg-yellow-400 border-b-4 border-yellow-500" x-data="{ mobileMenuOpen: false, searchBarOpen: false }" x-cloak>
+<div class="topbar">Free shipping for all products</div>
+<div class="header" x-data="{ mobileMenuOpen: false, searchBarOpen: false }" x-cloak>
     <div class="mx-auto px-4 sm:px-6">
         <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
             <!-- STORE NAME / STORE LOGO -->
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     {% else %}
-                        <a href="{{ link.url }}" class="text-base font-semibold bg-white/35 border-2 border-neutral-950 rounded-full px-4 py-1 text-neutral-900 hover:text-neutral-100 hover:bg-neutral-950">{{ link.title }}</a>
+                        <a href="{{ link.url }}" class="text-base font-semibold bg-white/35 px-4 py-1 text-neutral-900 hover:text-neutral-100 hover:bg-neutral-950">{{ link.title }}</a>
                     {% endif %}
                 {% endfor %}
             </nav>

@@ -1,14 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "banner": {
-            "type": "banner"
-        },
-        "featured-collection": {
-            "type": "featured-collection",
-            "settings": {
-                "featured_collection": "all"
-            }
-        }
+  "sections": {
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "bg_image": "shopify://shop_images/dark-wall-bedside-table_925x_190ce8ce-90b2-405b-a9eb-a778b79b4af9.jpg",
+        "heading": "Welcome to Our Store",
+        "subheading": "Discover amazing products",
+        "button_label": "Shop Now",
+        "button_link": ""
+      }
     },
-    "order": ["banner","featured-collection"]
+    "as_seen_on_8FHAJW": {
+      "type": "as-seen-on",
+      "blocks": {
+        "logo_tFTKb6": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/forbes.svg",
+            "alt_text": "Company Logo"
+          }
+        },
+        "logo_JRmrRC": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/cosmopolitan.svg",
+            "alt_text": "Company Logo"
+          }
+        },
+        "logo_4h3xHM": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/MJ_Logo.svg",
+            "alt_text": "Company Logo"
+          }
+        },
+        "logo_W9x4Yt": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/womenshelath.svg",
+            "alt_text": "Company Logo"
+          }
+        }
+      },
+      "block_order": [
+        "logo_tFTKb6",
+        "logo_JRmrRC",
+        "logo_4h3xHM",
+        "logo_W9x4Yt"
+      ],
+      "settings": {}
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "all",
+        "number_of_products_to_show": 4
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "as_seen_on_8FHAJW",
+    "featured-collection"
+  ]
 }
